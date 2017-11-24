@@ -43,7 +43,6 @@ public class ReadTagActivity extends Activity {
     private TextView part2;
 
     WifiManager wifiManager;
-    private Button connect;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,25 +76,6 @@ public class ReadTagActivity extends Activity {
 
         part1 = (TextView) findViewById(R.id.textView);
         part2 = (TextView) findViewById(R.id.textView2);
-
-        connect = (Button) findViewById(R.id.button);
-        connect.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                String payload = _textViewData.getText().toString();
-                String[] parts = payload.split("-");
-                String SSID = parts[0];
-                String Password = parts[1];
-                connectToWifi(SSID, Password);
-
-                //part1.setText(SSID);
-                //part2.setText(Password);
-
-
-            }
-        });
     }
 
     @Override
@@ -168,12 +148,17 @@ public class ReadTagActivity extends Activity {
     private void confirmDisplayedContentOverwrite(final NdefMessage msg) {
         final String data = _textViewData.getText().toString().trim();
 
-        new AlertDialog.Builder(this).setTitle("New tag found!").setMessage("Do you wanna show the content of this tag?")
+        new AlertDialog.Builder(this).setTitle("New tag found!").setMessage("Do you want to connect to the wifi?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         String payload = new String(msg.getRecords()[0].getPayload());
                         _textViewData.setText(new String(payload));
+
+                        String[] parts = payload.split("-");
+                        String SSID = parts[0];
+                        String Password = parts[1];
+                        connectToWifi(SSID, Password);
 
 
                     }
@@ -187,10 +172,6 @@ public class ReadTagActivity extends Activity {
 
     }
 
-    //int netId = wifiManager.addNetwork(conf);
-    //wifiManager.disconnect();
-    //wifiManager.enableNetwork(netId, true);
-    //wifiManager.reconnect();
 
     private void connectToWifi(final String networkSSID, final String networkPassword){
         WifiConfiguration conf = new WifiConfiguration();
