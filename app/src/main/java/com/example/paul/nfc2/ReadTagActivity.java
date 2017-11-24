@@ -50,7 +50,7 @@ public class ReadTagActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.read);
 
-        wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+        //wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 
         _textViewData = (TextView) findViewById(R.id.textData);
 
@@ -88,10 +88,11 @@ public class ReadTagActivity extends Activity {
                 String[] parts = payload.split("-");
                 String SSID = parts[0];
                 String Password = parts[1];
-
-                part1.setText(SSID);
-                part2.setText(Password);
                 connectToWifi(SSID, Password);
+
+                //part1.setText(SSID);
+                //part2.setText(Password);
+
 
             }
         });
@@ -192,25 +193,19 @@ public class ReadTagActivity extends Activity {
     //wifiManager.reconnect();
 
     private void connectToWifi(final String networkSSID, final String networkPassword){
-        if (!wifiManager.isWifiEnabled()){
-            wifiManager.setWifiEnabled(true);
-        }
         WifiConfiguration conf = new WifiConfiguration();
-        conf.SSID = String.format("\"%s\"", networkSSID);
+        conf.SSID = "\"" + networkSSID + "\"";
         conf.preSharedKey = "\""+ networkPassword +"\"";
 
-        WifiManager wifiManager = (WifiManager)this.getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifiManager = (WifiManager)getSystemService(WIFI_SERVICE);
+        //if (!wifiManager.isWifiEnabled()){
+        //    wifiManager.setWifiEnabled(true);
+        //}
         wifiManager.addNetwork(conf);
 
-        List<WifiConfiguration> wifiList = wifiManager.getConfiguredNetworks();
-        for( WifiConfiguration i : wifiList ) {
-            if(i.SSID != null && i.SSID.equals("\"" + networkSSID + "\"")) {
-                wifiManager.disconnect();
-                wifiManager.enableNetwork(i.networkId, true);
-                wifiManager.reconnect();
-
-                break;
-            }
-        }
+        int netId = wifiManager.addNetwork(conf);
+        wifiManager.disconnect();
+        wifiManager.enableNetwork(netId, true);
+        wifiManager.reconnect();
     }
 }
