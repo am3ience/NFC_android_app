@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/linearLayout">
+        <Button
+            android:id="@+id/buttonWriteTag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Write"/>
+        <Button
+            android:id="@+id/buttonReadTag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Read"/>
+        <Button
+            android:id="@+id/buttonBeam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Beam"/>
+        <Button
+            android:text="File Transfer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonfile" />
+    </LinearLayout>
+
+
+
+</RelativeLayout>
