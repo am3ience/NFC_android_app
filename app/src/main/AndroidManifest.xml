@@ -44,7 +44,7 @@
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="application/com.elsinga.sample.nfc" />
+                <data android:mimeType="application/com.paul.sample.nfc" />
             </intent-filter>
         </activity>
 
@@ -53,11 +53,22 @@
             android:screenOrientation="portrait"
             android:label="Beam"
             android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".FileTransfer"
             android:screenOrientation="portrait"
             android:label="File Transfer"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+            android:name=".BeamActivity2"
+            android:screenOrientation="portrait"
+            android:label="Beam v2"
             android:parentActivityName=".MainActivity">
         </activity>
     </application>

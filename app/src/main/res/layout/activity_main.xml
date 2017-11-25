@@ -31,6 +31,11 @@
             android:layout_height="wrap_content"
             android:text="Beam Messenger"/>
         <Button
+            android:id="@+id/buttonBeam2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Beam Messenger 2"/>
+        <Button
             android:text="File Transfer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

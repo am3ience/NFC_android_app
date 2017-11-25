@@ -28,12 +28,10 @@ public class BeamDisplayActivity extends Activity {
         super.onResume();
         Intent intent = getIntent();
         if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
-            Parcelable[] rawMessages = intent.getParcelableArrayExtra(
-                    NfcAdapter.EXTRA_NDEF_MESSAGES);
+            Parcelable[] rawMessages = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
 
-            NdefMessage message = (NdefMessage) rawMessages[0]; // only one message transferred
+            NdefMessage message = (NdefMessage) rawMessages[0];
             mTextView.setText(new String(message.getRecords()[0].getPayload()));
-
         } else
             mTextView.setText("Waiting for NDEF Message");
 
