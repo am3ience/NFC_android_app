@@ -12,32 +12,13 @@
         android:textSize="15sp"
         android:textStyle="bold"/>
 
-    <Button
-        android:text="Connect to Wifi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textData"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
-        android:id="@+id/button" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
         android:id="@+id/textView"
-        android:gravity="center"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView"
-        android:layout_marginTop="16dp"
-        android:id="@+id/textView2"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:text="Tap the NFC tag onto the phone to read the Wifi credentials" />
 
 </RelativeLayout>

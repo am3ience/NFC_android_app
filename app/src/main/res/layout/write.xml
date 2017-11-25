@@ -19,7 +19,7 @@
             android:id="@+id/textData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Write your data here"/>
+            android:hint='Write your Wifi credentials, SSID first then password seperated by a "-"'/>
     </LinearLayout>
 
     <LinearLayout
@@ -33,5 +33,14 @@
             android:layout_height="wrap_content"
             android:text="Write"/>
     </LinearLayout>
+
+    <TextView
+        android:text="Example: paulswifi-123456"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

@@ -30,7 +30,7 @@ public class FileTransfer extends Activity {
         // Check whether NFC is available on device
         if (!pm.hasSystemFeature(PackageManager.FEATURE_NFC)) {
             // NFC is not available on the device.
-            Toast.makeText(this, "The device does not has NFC hardware.",
+            Toast.makeText(this, "The device does not have NFC hardware.",
                     Toast.LENGTH_SHORT).show();
         }
         // Check whether device is running Android 4.1 or higher
@@ -68,11 +68,10 @@ public class FileTransfer extends Activity {
             // NFC and Android Beam both are enabled
 
             // File to be transferred
-            // For the sake of this tutorial I've placed an image
-            // named 'wallpaper.png' in the 'Pictures' directory
+            // change this to whatever picture you want to send
             String fileName = "sample.jpg";
 
-            // Retrieve the path to the user's public pictures directory
+            // Retrieve the path to the public pictures directory
             File fileDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
 
             // Create a new file using the specified directory and name

@@ -21,6 +21,7 @@ public class MainActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Write to tag
         _buttonWriteTag = (Button) findViewById(R.id.buttonWriteTag);
         _buttonWriteTag.setOnClickListener(new OnClickListener()
         {
@@ -31,6 +32,7 @@ public class MainActivity extends Activity
             }
         });
 
+        //Read tag
         _buttonReadTag = (Button) findViewById(R.id.buttonReadTag);
         _buttonReadTag.setOnClickListener(new OnClickListener()
         {
@@ -41,6 +43,7 @@ public class MainActivity extends Activity
             }
         });
 
+        //Beam messages to someone else
         _buttonBeam = (Button) findViewById(R.id.buttonBeam);
         _buttonBeam.setOnClickListener(new OnClickListener()
         {
@@ -51,6 +54,7 @@ public class MainActivity extends Activity
             }
         });
 
+        //Beam a file to someone
         buttonfile = (Button) findViewById(R.id.buttonfile);
         buttonfile.setOnClickListener(new OnClickListener()
         {

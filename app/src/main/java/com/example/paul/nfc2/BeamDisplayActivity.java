@@ -12,9 +12,6 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.widget.TextView;
 
-/**
- * Created by mshrestha on 7/23/2014.
- */
 public class BeamDisplayActivity extends Activity {
 
     private TextView mTextView;

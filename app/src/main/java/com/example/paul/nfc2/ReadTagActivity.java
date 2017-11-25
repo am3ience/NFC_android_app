@@ -148,7 +148,7 @@ public class ReadTagActivity extends Activity {
     private void confirmDisplayedContentOverwrite(final NdefMessage msg) {
         final String data = _textViewData.getText().toString().trim();
 
-        new AlertDialog.Builder(this).setTitle("New tag found!").setMessage("Do you want to connect to the wifi?")
+        new AlertDialog.Builder(this).setTitle("NFC tag found!").setMessage("Do you want to connect to the wifi?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {

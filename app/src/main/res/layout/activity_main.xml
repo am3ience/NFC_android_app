@@ -19,17 +19,17 @@
             android:id="@+id/buttonWriteTag"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Write"/>
+            android:text="Write Wifi info to NFC"/>
         <Button
             android:id="@+id/buttonReadTag"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Read"/>
+            android:text="Read NFC wifi credentials to connect"/>
         <Button
             android:id="@+id/buttonBeam"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Beam"/>
+            android:text="Beam Messenger"/>
         <Button
             android:text="File Transfer"
             android:layout_width="match_parent"

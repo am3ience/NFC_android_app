@@ -52,7 +52,7 @@ public class WriteTagActivity extends Activity
 
         if (_nfcAdapter == null)
         {
-            Toast.makeText(this, "Your device does not support NFC. Cannot run this sample.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Your device does not support NFC. Cannot run this app.", Toast.LENGTH_LONG).show();
             finish();
             return;
         }
@@ -148,7 +148,7 @@ public class WriteTagActivity extends Activity
                 }
 
                 ndef.writeNdefMessage(message);
-                Toast.makeText(this, "A pre-formatted tag was successfully updated.", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "NFC tag was successfully updated.", Toast.LENGTH_LONG).show();
                 return true;
             }
 

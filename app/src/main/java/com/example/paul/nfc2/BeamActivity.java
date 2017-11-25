@@ -39,11 +39,6 @@ public class BeamActivity extends Activity implements NfcAdapter.CreateNdefMessa
         mAdapter.setNdefPushMessageCallback(this, this);
     }
 
-    /**
-     * Ndef Record that will be sent over via NFC
-     * @param nfcEvent
-     * @return
-     */
     @Override
     public NdefMessage createNdefMessage(NfcEvent nfcEvent) {
         String message = mEditText.getText().toString();
