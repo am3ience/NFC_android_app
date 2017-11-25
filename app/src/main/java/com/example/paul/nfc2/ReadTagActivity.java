@@ -39,8 +39,8 @@ public class ReadTagActivity extends Activity {
     IntentFilter[] _readTagFilters;
 
     private TextView _textViewData;
-    private TextView part1;
-    private TextView part2;
+    //private TextView part1;
+    //private TextView part2;
 
     WifiManager wifiManager;
 
@@ -74,8 +74,8 @@ public class ReadTagActivity extends Activity {
 
         _readTagFilters = new IntentFilter[]{ndefDetected};
 
-        part1 = (TextView) findViewById(R.id.textView);
-        part2 = (TextView) findViewById(R.id.textView2);
+        //part1 = (TextView) findViewById(R.id.textView);
+        //part2 = (TextView) findViewById(R.id.textView2);
     }
 
     @Override
@@ -159,6 +159,7 @@ public class ReadTagActivity extends Activity {
                         String SSID = parts[0];
                         String Password = parts[1];
                         connectToWifi(SSID, Password);
+                        connectToWifiWPA2(SSID, Password);
 
 
                     }
@@ -179,10 +180,33 @@ public class ReadTagActivity extends Activity {
         conf.preSharedKey = "\""+ networkPassword +"\"";
 
         WifiManager wifiManager = (WifiManager)getSystemService(WIFI_SERVICE);
-        //if (!wifiManager.isWifiEnabled()){
-        //    wifiManager.setWifiEnabled(true);
-        //}
+        if (!wifiManager.isWifiEnabled()){
+            wifiManager.setWifiEnabled(true);
+        }
         wifiManager.addNetwork(conf);
+
+        int netId = wifiManager.addNetwork(conf);
+        wifiManager.disconnect();
+        wifiManager.enableNetwork(netId, true);
+        wifiManager.reconnect();
+    }
+
+    private void connectToWifiWPA2(final String networkSSID, final String networkPassword){
+        WifiConfiguration conf = new WifiConfiguration();
+        conf.SSID = "\"" + networkSSID + "\"";
+        conf.preSharedKey = "\""+ networkPassword +"\"";
+
+        WifiManager wifiManager = (WifiManager)getSystemService(WIFI_SERVICE);
+        if (!wifiManager.isWifiEnabled()){
+            wifiManager.setWifiEnabled(true);
+        }
+        conf.status = WifiConfiguration.Status.ENABLED;
+        conf.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.TKIP);
+        conf.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.CCMP);
+        conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.WPA_PSK);
+        conf.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.TKIP);
+        conf.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.CCMP);
+        conf.allowedProtocols.set(WifiConfiguration.Protocol.RSN);
 
         int netId = wifiManager.addNetwork(conf);
         wifiManager.disconnect();
