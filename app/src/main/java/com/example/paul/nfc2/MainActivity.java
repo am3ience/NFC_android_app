@@ -14,6 +14,7 @@ public class MainActivity extends Activity
     private Button _buttonReadTag;
     private Button _buttonBeam;
     private Button buttonfile;
+    private Button buttonBeam2;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -66,8 +67,8 @@ public class MainActivity extends Activity
         });
 
         //Beam a file to someone v2
-        buttonfile = (Button) findViewById(R.id.buttonBeam2);
-        buttonfile.setOnClickListener(new OnClickListener()
+        buttonBeam2 = (Button) findViewById(R.id.buttonBeam2);
+        buttonBeam2.setOnClickListener(new OnClickListener()
         {
             @Override
             public void onClick(View v)
