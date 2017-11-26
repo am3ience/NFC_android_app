@@ -35,7 +35,6 @@ public class BeamActivity extends Activity implements NfcAdapter.CreateNdefMessa
         if (!mAdapter.isEnabled()) {
             Toast.makeText(this, "Please enable NFC via Settings.", Toast.LENGTH_LONG).show();
         }
-
         mAdapter.setNdefPushMessageCallback(this, this);
     }
 

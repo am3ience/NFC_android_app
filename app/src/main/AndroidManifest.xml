@@ -40,7 +40,6 @@
             android:screenOrientation="portrait"
             android:label="Read"
             android:parentActivityName=".MainActivity">
-
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -51,8 +50,14 @@
         <activity
             android:name=".BeamActivity"
             android:screenOrientation="portrait"
-            android:label="Beam"
+            android:label="Beam v2"
             android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+            android:name=".BeamDisplayActivity"
+            android:screenOrientation="portrait"
+            android:label="Beam"
+            android:parentActivityName=".MainActivity">2
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -63,12 +68,6 @@
             android:name=".FileTransfer"
             android:screenOrientation="portrait"
             android:label="File Transfer"
-            android:parentActivityName=".MainActivity">
-        </activity>
-        <activity
-            android:name=".BeamActivity2"
-            android:screenOrientation="portrait"
-            android:label="Beam v2"
             android:parentActivityName=".MainActivity">
         </activity>
     </application>

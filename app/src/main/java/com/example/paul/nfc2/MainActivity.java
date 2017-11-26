@@ -65,16 +65,5 @@ public class MainActivity extends Activity
                 startActivity(new Intent(MainActivity.this, FileTransfer.class));
             }
         });
-
-        //Beam a file to someone v2
-        buttonBeam2 = (Button) findViewById(R.id.buttonBeam2);
-        buttonBeam2.setOnClickListener(new OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                startActivity(new Intent(MainActivity.this, BeamActivity2.class));
-            }
-        });
     }
 }
