@@ -19,7 +19,7 @@
         android:onClick="sendFile"/>
 
     <TextView
-        android:text="Send a photo from yoon your phone to someone else!"
+        android:text="Send a photo from your phone to someone else!"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView6" />
