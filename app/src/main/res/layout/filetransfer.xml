@@ -3,10 +3,24 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:hint="Name of the file you want to send" />
+
     <Button
         android:text="Send File"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button2"
         android:onClick="sendFile"/>
+
+    <TextView
+        android:text="Send a photo from yoon your phone to someone else!"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6" />
 </LinearLayout>

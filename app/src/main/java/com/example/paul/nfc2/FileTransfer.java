@@ -12,19 +12,25 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class FileTransfer extends Activity {
 
     private NfcAdapter nfcAdapter;
-    private Button button;
+    private EditText file;
+    private TextView filelist;
+    private EditText folder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.filetransfer);
+
 
         PackageManager pm = this.getPackageManager();
         // Check whether NFC is available on device
@@ -48,6 +54,8 @@ public class FileTransfer extends Activity {
     public void sendFile(View view) {
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
+
+
         // Check whether NFC is enabled on device
         if(!nfcAdapter.isEnabled()){
             // NFC is disabled, show the settings UI
@@ -69,10 +77,15 @@ public class FileTransfer extends Activity {
 
             // File to be transferred
             // change this to whatever picture you want to send
-            String fileName = "sample.jpg";
+            file = (EditText) findViewById(R.id.editText);
+            String string = file.getText().toString();
+            String fileName = "/Camera/" + string;
+            //String fileName = "/Camera/sample.jpg";
 
             // Retrieve the path to the public pictures directory
             File fileDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
+
+
 
             // Create a new file using the specified directory and name
             File fileToTransfer = new File(fileDirectory, fileName);
